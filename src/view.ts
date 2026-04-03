@@ -5,9 +5,9 @@ import type TodoTreePlugin from "./main";
 
 export const TODO_TREE_VIEW_TYPE = "todo-tree-view";
 const EXPAND_ICON_SVG =
-  '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 3l5 5-5 5-1.4-1.4L8.2 8 4.6 4.4 6 3z"></path></svg>';
+  '<svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6 3l5 5-5 5-1.4-1.4L8.2 8 4.6 4.4 6 3z"></path></svg>';
 const TODO_CIRCLE_CHECK_SVG =
-  '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.5a6.5 6.5 0 1 1 0 13a6.5 6.5 0 0 1 0-13zm2.9 4.3L7 9.8L5.1 7.9L4 9l3 3l5-5l-1.1-1.2z"></path></svg>';
+  '<svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.5a6.5 6.5 0 1 1 0 13a6.5 6.5 0 0 1 0-13zm2.9 4.3L7 9.8L5.1 7.9L4 9l3 3l5-5l-1.1-1.2z"></path></svg>';
 
 export class TodoTreeView extends ItemView {
   private readonly plugin: TodoTreePlugin;
