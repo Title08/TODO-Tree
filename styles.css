@@ -1,0 +1,161 @@
+.todo-tree-view {
+  padding: 8px;
+}
+
+.todo-tree-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.todo-tree-header h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.todo-tree-count {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.todo-tree-empty {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.todo-tree-folder,
+.todo-tree-file {
+  margin: 2px 0;
+}
+
+.todo-tree-folder summary,
+.todo-tree-file summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  list-style: none;
+}
+
+.todo-tree-folder summary::-webkit-details-marker,
+.todo-tree-file summary::-webkit-details-marker {
+  display: none;
+}
+
+.todo-tree-folder-content {
+  padding-left: 14px;
+  overflow: hidden;
+  max-height: 2000px;
+  opacity: 1;
+  transition: max-height 180ms ease, opacity 180ms ease;
+}
+
+.todo-tree-folder:not([open]) > .todo-tree-folder-content,
+.todo-tree-file:not([open]) > .todo-tree-items {
+  max-height: 0;
+  opacity: 0.2;
+}
+
+.todo-tree-file-name,
+.todo-tree-folder-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.todo-tree-row-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.todo-tree-expand-icon {
+  color: var(--text-muted);
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: transform 160ms ease, color 120ms ease;
+}
+
+.todo-tree-expand-icon svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+  fill: currentColor;
+}
+
+.todo-tree-folder:not([open]) > summary .todo-tree-expand-icon,
+.todo-tree-file:not([open]) > summary .todo-tree-expand-icon {
+  transform: rotate(0deg);
+}
+
+.todo-tree-badge {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.todo-tree-items {
+  padding-left: 14px;
+  overflow: hidden;
+  max-height: 2000px;
+  opacity: 1;
+  transition: max-height 180ms ease, opacity 180ms ease;
+}
+
+.todo-tree-item {
+  cursor: pointer;
+  padding: 4px 2px;
+  border-radius: 4px;
+}
+
+.todo-tree-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.todo-tree-item-title {
+  display: flex;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.todo-tree-checkbox-icon {
+  width: 1.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.todo-tree-todo-check-icon {
+  color: var(--text-accent);
+}
+
+.todo-tree-todo-check-icon svg {
+  width: 0.95em;
+  height: 0.95em;
+  display: block;
+  fill: currentColor;
+}
+
+.todo-tree-tag {
+  font-weight: 600;
+  color: var(--text-accent);
+}
+
+.todo-tree-item-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.todo-tree-item-done .todo-tree-item-title {
+  color: var(--text-faint);
+  text-decoration: line-through;
+}

@@ -1,0 +1,11 @@
+{
+  "id": "todo-tree",
+  "name": "TODO Tree",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "VSCode-style TODO tree for Obsidian notes.",
+  "author": "theanrawichthungpromsri",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
+

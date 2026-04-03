@@ -1,0 +1,24 @@
+{
+  "name": "obsidian-todo-tree",
+  "version": "0.1.0",
+  "description": "VSCode-style TODO tree for Obsidian markdown notes.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc --noEmit --skipLibCheck && node esbuild.config.mjs production"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "todo"
+  ],
+  "author": "theanrawichthungpromsri",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.14.8",
+    "esbuild": "^0.23.0",
+    "obsidian": "^1.8.9",
+    "typescript": "^5.5.4"
+  }
+}
+
