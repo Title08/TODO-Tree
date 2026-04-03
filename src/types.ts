@@ -1,3 +1,5 @@
+export type GroupBy = "tag" | "folder";
+
 export interface TodoTreeSettings {
   tags: string[];
   regex: string;
@@ -7,6 +9,7 @@ export interface TodoTreeSettings {
   includeGlobs: string[];
   excludeGlobs: string[];
   autoRefresh: boolean;
+  groupBy: GroupBy;
 }
 
 export type MarkdownTaskState = "open" | "done";
@@ -43,5 +46,6 @@ export const DEFAULT_SETTINGS: TodoTreeSettings = {
   showCompletedMarkdownTasks: true,
   includeGlobs: [],
   excludeGlobs: [],
-  autoRefresh: true
+  autoRefresh: true,
+  groupBy: "tag"
 };

@@ -89,3 +89,37 @@ export function countTodosInFolder(folder: TodoFolderNode): number {
   return total;
 }
 
+/** Group by tag node for VSCode-style display */
+export interface TagGroupNode {
+  tag: string;
+  todos: TodoMatch[];
+}
+
+/** Build tree grouped by tag (VSCode TODO Tree style) */
+export function buildTagGroupedTree(matches: TodoMatch[]): TagGroupNode[] {
+  const byTag = new Map<string, TodoMatch[]>();
+
+  for (const match of matches) {
+    const tagKey = match.tag.toUpperCase();
+    const existing = byTag.get(tagKey);
+    if (existing === undefined) {
+      byTag.set(tagKey, [match]);
+    } else {
+      existing.push(match);
+    }
+  }
+
+  const groups: TagGroupNode[] = [];
+  for (const [tag, todos] of byTag) {
+    todos.sort((a, b) => {
+      const pathCmp = a.filePath.localeCompare(b.filePath);
+      if (pathCmp !== 0) return pathCmp;
+      return a.line - b.line;
+    });
+    groups.push({ tag, todos });
+  }
+
+  groups.sort((a, b) => a.tag.localeCompare(b.tag));
+  return groups;
+}
+

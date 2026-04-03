@@ -112,6 +112,19 @@ export class TodoTreeSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
+      .setName("Group by")
+      .setDesc("Choose how to organize TODOs in the tree view.")
+      .addDropdown((dropdown) =>
+        dropdown
+          .addOption("tag", "Tag (TODO, FIXME, BUG...)")
+          .addOption("folder", "Folder hierarchy")
+          .setValue(this.plugin.settings.groupBy)
+          .onChange(async (value) => {
+            await this.plugin.updateSettings({ groupBy: value as "tag" | "folder" });
+          })
+      );
+
+    new Setting(containerEl)
       .setName("Include globs")
       .setDesc("Optional: one glob per line. If set, only matching files are scanned.")
       .addTextArea((text) => {

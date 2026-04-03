@@ -152,6 +152,10 @@ export default class TodoTreePlugin extends Plugin {
     return this.treeRoot;
   }
 
+  getAllMatches(): TodoMatch[] {
+    return this.indexer.getAllMatches();
+  }
+
   async refreshAll(): Promise<void> {
     await this.indexer.reindexAll();
     this.treeRoot = buildTodoTree(this.indexer.getAllMatches());
