@@ -159,8 +159,19 @@ export default class TodoTreePlugin extends Plugin {
   }
 
   async openTodo(file: TFile, todo: TodoMatch): Promise<void> {
-    const leaf = this.app.workspace.getLeaf(true);
-    await leaf.openFile(file);
+    const existingLeaf = this.app.workspace
+      .getLeavesOfType("markdown")
+      .find((leaf) => {
+        const view = leaf.view;
+        return view instanceof MarkdownView && view.file?.path === file.path;
+      });
+
+    const leaf = existingLeaf ?? this.app.workspace.getLeaf(true);
+    if (existingLeaf === undefined) {
+      await leaf.openFile(file);
+    }
+
+    await this.app.workspace.revealLeaf(leaf);
     const view = leaf.view;
     if (view instanceof MarkdownView) {
       const line = Math.max(todo.line - 1, 0);
@@ -204,4 +215,3 @@ export default class TodoTreePlugin extends Plugin {
     await this.app.workspace.revealLeaf(leaf);
   }
 }
-
